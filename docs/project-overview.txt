@@ -1,0 +1,42 @@
+Project: Prompt Management System
+
+Objective:
+Develop a flexible, language-agnostic system for managing, versioning, and executing AI prompts, decoupling prompt management from application code and enabling non-technical users to modify prompts and parameters without code changes.
+
+Pain Points:
+1. Tight coupling of prompts, model parameters, and code, requiring code changes for prompt or model updates
+2. Inefficient process for adapting to new, potentially cheaper or better LLM models
+3. Developers, rather than business stakeholders, often making decisions about prompt content and model selection
+4. Lack of version control for prompts independent of code versioning
+5. Difficulty in managing and organizing prompts across different projects and business areas
+6. Inconsistent interfaces when working with multiple LLM providers
+7. Limited observability into prompt performance and usage patterns
+
+Key Features:
+1. Hierarchical prompt organization using slugs (e.g., "projectname/business-area/slug-name")
+2. YAML-based prompt storage using Microsoft's "prompty" format (https://github.com/microsoft/prompty, https://microsoft.github.io/promptflow/how-to-guides/develop-a-prompty/index.html)
+3. Git-based versioning for prompts, separate from application code
+4. Integration with LLM gateways (primarily OpenRouter) for standardized model interactions
+5. Supports both Python and TypeScript
+6. Local logging of LLM calls with OpenTelemetry integration for metrics visualization
+7. Simple API for developers to execute prompts by ID (slug)
+
+Architecture Components:
+1. Prompt Management Layer: Core library for prompt retrieval and execution
+2. YAML-based Prompt/Config Storage: For storing prompts and model configurations
+3. LLM Gateway: Intermediary for standardized LLM service interactions
+4. Local Logging System: For tracking LLM calls and performance metrics
+5. OpenTelemetry Integration: For shipping logs to visualization systems
+
+Future Enhancements:
+1. Admin UI for non-technical users to edit and test prompts
+2. Evaluation datasets for prompt testing
+3. Advanced features like A/B testing and prompt chaining
+
+Implementation Approach:
+1. Start with a Minimum Viable Product (MVP) focusing on core functionality
+2. Iterate to add enhanced features and integrations
+3. Package the library for pip and npm for easy distribution
+4. Consider open-sourcing or exploring business opportunities based on adoption and feedback
+
+This project aims to solve the common challenge of prompt management in AI applications, providing a robust, scalable solution that separates concerns between development and business logic, while offering flexibility for future growth and adaptation to new LLM technologies.

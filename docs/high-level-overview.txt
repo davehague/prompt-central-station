@@ -1,0 +1,26 @@
+graph TD
+    A[Application Code] -->|Calls prompt by slug| B[Prompt Management Layer]
+    B -->|Retrieves prompt| C[YAML Storage]
+    C -->|Versioned in| D[Git Repository]
+    B -->|Executes prompt| E[LLM Gateway]
+    E -->|Standardized calls| F[LLM Services]
+    B -->|Logs calls| G[Local Logging]
+    G -->|Ships logs| H[OpenTelemetry]
+    H -->|Visualizes| I[Metrics Dashboard]
+    J[Future: Admin UI] -.->|Manages| C
+    K[Developers] -->|Use| A
+    L[Business Users] -.->|Will use| J
+
+    subgraph "Prompt Organization"
+        C -->|Structured as| M["project/
+        business-area/
+        slug-name.yaml"]
+    end
+
+    subgraph "Supported Languages"
+        N[Python Library]
+        O[TypeScript Library]
+    end
+
+    B ---|Implements| N
+    B ---|Implements| O

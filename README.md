@@ -23,6 +23,15 @@ __Premise__:
 - Comprehensive logging system that can be consumed by managed logging services like Datadog
 - Excellent developer experience, easy to use and extend
 
+### Core Functionality
+
+1. Interface - Must have a UI interface (don’t have to write code, Jupyter notebooks, etc)
+2. Prompt Versioning - Must be able to version prompts and review history
+3. Model Integration - Must have all the most recent models.  Should be able to do side-by-side comparison of models.
+4. Prompt Evaluation - Should be able to run a test suite of data against your prompts which results in a percentage of "passed" tests that meets a minimum threshold. 
+5. Prompt Stats / observability - Must show how long it took to run the query. Must show cost, tokens, etc
+
+
 ## Architecture
 This SDK is intended to be the orchestrator of a full prompt management solution, allowing business users to 
 create and test prompts without needing to have technical experience.  This greater architecture should also
